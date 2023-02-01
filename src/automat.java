@@ -80,7 +80,7 @@ public class automat extends JFrame {
     private JTextField textfield1;
     private JButton plac;
 
-    private double total = 0.0;
+    protected double total = 0.0;
 
     private int x = 0;
 
@@ -140,9 +140,10 @@ public class automat extends JFrame {
 
     }
 
-    public void oplata()
+    public int oplata()
     {
         textfield1.setText(String.valueOf(total));
+        return (int) total;
     }
 
 
