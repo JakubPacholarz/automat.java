@@ -29,8 +29,8 @@ public class automat extends JFrame {
     private JButton a5zlButton3;
     private JButton a4zlButton1;
     private JButton a5zlButton2;
-    private JSpinner spinner1;
-    private JSpinner spinner2;
+    protected JSpinner spinner1;
+    protected JSpinner spinner2;
     private JSpinner spinner3;
     private JSpinner spinner4;
     private JSpinner spinner5;
@@ -48,11 +48,12 @@ public class automat extends JFrame {
     private JPanel JPanel11;
     private JPanel JPanel13;
     private JPanel rachunek;
-    private JTextField textField1;
+
+    private JTextField qwe;
     private JPanel JPanel15;
-    private JLabel JLabelpepsi;
-    private JCheckBox checkBox1;
-    private JCheckBox checkBox2;
+    protected JLabel JLabelpepsi;
+    protected JCheckBox checkBox1;
+    protected JCheckBox checkBox2;
     private JCheckBox checkBox3;
     private JCheckBox checkBox4;
     private JCheckBox checkBox7;
@@ -63,10 +64,10 @@ public class automat extends JFrame {
     private JCheckBox checkBox10;
     private JCheckBox checkBox11;
     private JCheckBox checkBox12;
-    private JLabel Jlabeldata;
-    private JLabel JLabelczas;
-    private JTextArea textArea1;
-    private JLabel cola;
+    protected JLabel Jlabeldata;
+    protected JLabel JLabelczas;
+    protected JTextArea textArea12;
+    protected JLabel cola;
     private JLabel Rogalik;
     private JLabel KNOPERS;
     private JLabel WODANIGAZ;
@@ -77,12 +78,15 @@ public class automat extends JFrame {
     private JLabel HERBATA;
     private JLabel KANAPKA;
     private JLabel SNIKERS;
-    private JTextField textfield1;
-    private JButton plac;
+    protected JTextField textfield1;
+    private JButton payment;
 
     protected double total = 0.0;
 
-    private int x = 0;
+    protected int x = 0;
+
+
+
 
     public void init() {
         setImage();
@@ -133,17 +137,18 @@ public class automat extends JFrame {
         TOTALButton.setEnabled(true);
         total=0.0;
         x=0;
-        textArea1.setText(null);
+        textArea12.setText(null);
         textfield1.setText("0.00");
 
 
 
     }
 
-    public int oplata()
+    public void oplata()
     {
         textfield1.setText(String.valueOf(total));
-        return (int) total;
+
+
     }
 
 
@@ -177,10 +182,7 @@ public class automat extends JFrame {
 
     }
 
-    public void rach() {
-        textArea1.setText("^^^^^RACHUNEK^^^^^\n"
-                + "CZAS:" + JLabelczas.getText() + "DATA:" + Jlabeldata.getText() + "\n" + "^^^^^RACHUNEK^^^^^\n" + " nazwa przedmiotu:\t\t\t" + "Cena(zl)\n");
-    }
+
 
 
     public automat() {
@@ -214,11 +216,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox1.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty * 5.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() + x + ". " + JLabelpepsi.getText() + "\t\t" + cena);
+                    textArea12.setText(textArea12.getText() + x + ". " + JLabelpepsi.getText() + "\t\t" + cena);
                     oplata();
                 } else {
                     checkBox1.setSelected(false);
@@ -236,11 +238,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox2.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty * 6.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() + x + ". " + cola.getText() + "\t\t" + cena + "\n");
+                    textArea12.setText(textArea12.getText() + x + ". " + cola.getText() + "\t\t" + cena + "\n");
                     oplata();
                 } else {
                     checkBox2.setSelected(false);
@@ -258,11 +260,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox3.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty * 3.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() + x + ". " + Rogalik.getText() + "\t\t" + cena + "\n");
+                    textArea12.setText(textArea12.getText() + x + ". " + Rogalik.getText() + "\t\t" + cena + "\n");
                     oplata();
                 } else {
                     checkBox3.setSelected(false);
@@ -279,11 +281,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox4.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty*3.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() +x+ ". " + KNOPERS.getText() + "\t\t" + cena+"\n");
+                    textArea12.setText(textArea12.getText() +x+ ". " + KNOPERS.getText() + "\t\t" + cena+"\n");
                     oplata();
                 }else {
                     checkBox4.setSelected(false);
@@ -300,11 +302,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox5.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty*2.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() +x+ ". " + WODANIGAZ.getText() + "\t\t" + cena+"\n");
+                    textArea12.setText(textArea12.getText() +x+ ". " + WODANIGAZ.getText() + "\t\t" + cena+"\n");
                     oplata();
                 }else {
                     checkBox5.setSelected(false);
@@ -321,11 +323,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox6.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty*2.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() +x+ ". " + WODAGAZ.getText() + "\t\t" + cena+"\n");
+                    textArea12.setText(textArea12.getText() +x+ ". " + WODAGAZ.getText() + "\t\t" + cena+"\n");
                     oplata();
                 }else {
                     checkBox6.setSelected(false);
@@ -342,11 +344,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox7.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty*5.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() +x+ ". " + PALUSZKI.getText() + "\t\t" + cena+"\n");
+                    textArea12.setText(textArea12.getText() +x+ ". " + PALUSZKI.getText() + "\t\t" + cena+"\n");
                     oplata();
                 }else {
                     checkBox7.setSelected(false);
@@ -363,11 +365,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox8.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty*4.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() +x+ ". " + SIEDEM.getText() + "\t\t" + cena+"\n");
+                    textArea12.setText(textArea12.getText() +x+ ". " + SIEDEM.getText() + "\t\t" + cena+"\n");
                     oplata();
                 }else {
                     checkBox8.setSelected(false);
@@ -384,11 +386,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox9.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty*5.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() +x+ ". " + KAWA.getText() + "\t\t" + cena+"\n");
+                    textArea12.setText(textArea12.getText() +x+ ". " + KAWA.getText() + "\t\t" + cena+"\n");
                     oplata();
                 }else {
                     checkBox9.setSelected(false);
@@ -405,11 +407,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox10.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty*4.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() +x+ ". " + HERBATA.getText() + "\t\t" + cena+"\n");
+                    textArea12.setText(textArea12.getText() +x+ ". " + HERBATA.getText() + "\t\t" + cena+"\n");
                     oplata();
                 }else {
                     checkBox10.setSelected(false);
@@ -426,11 +428,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox11.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty*5.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() +x+ ". " + KANAPKA.getText() + "\t\t" + cena+"\n");
+                    textArea12.setText(textArea12.getText() +x+ ". " + KANAPKA.getText() + "\t\t" + cena+"\n");
                     oplata();
                 }else {
                     checkBox11.setSelected(false);
@@ -447,11 +449,11 @@ public class automat extends JFrame {
                 if (qtyiszero(qty) && checkBox12.isSelected()) {
                     x++;
                     if (x == 1) {
-                        rach();
+                        new Total();
                     }
                     double cena = qty*2.0;
                     total += cena;
-                    textArea1.setText(textArea1.getText() +x+ ". " + SNIKERS.getText() + "\t\t" + cena+"\n");
+                    textArea12.setText(textArea12.getText() +x+ ". " + SNIKERS.getText() + "\t\t" + cena+"\n");
                     oplata();
                 }else {
                     checkBox12.setSelected(false);
@@ -468,17 +470,12 @@ public class automat extends JFrame {
                 {
                     JOptionPane.showMessageDialog(null, "Nie wybrałeś ani jednego przedmiotu - proszę wybrać przedmiot");
                 }else {
-                    textArea1.setText(textArea1.getText() + "\n^^^^^\n" + " Calkowity rachunek wynosi: \t\t\t" + total+"\n"+ "^^^^^");
+                    textArea12.setText(textArea12.getText() + "\n^^^^^\n" + " Calkowity rachunek wynosi: \t\t\t" + total+"\n"+ "^^^^^");
                     TOTALButton.setEnabled(false);
                 }
             }
         });
-        plac.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
-        });
         a50Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -576,6 +573,20 @@ public class automat extends JFrame {
                 spinner12.setValue(x+1);
             }
         });
+        payment.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                payment pay = new payment();
+                pay.setVisible(true);
+
+
+            }
+        });
+
+        ;
     }
+
+
 }
 
